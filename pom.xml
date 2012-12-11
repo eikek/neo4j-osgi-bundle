@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>org.neo4j.build</groupId>
-    <artifactId>parent-central</artifactId>
-    <version>31</version>
-  </parent>
+  <!--<parent>-->
+    <!--<groupId>org.neo4j.build</groupId>-->
+    <!--<artifactId>parent-central</artifactId>-->
+    <!--<version>31</version>-->
+  <!--</parent>-->
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.neo4j</groupId>
@@ -48,6 +48,12 @@
       <artifactId>logback-classic</artifactId>
       <version>1.0.9</version>
     </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <version>4.2.0</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -60,11 +66,11 @@
         <configuration>
           <instructions>
             <Import-Package>!com.sun.*,!sun.*,scala.*;resolution:="optional",org.codehaus.*;resolution:="optional",groovy.*;resolution:="optional",javax.servlet.*;resolution:="optional",javax.jms.*;resolution:="optional",javax.mail.*;resolution:="optional",com.mysema.query.*;version="[2.2.5, 3)";resolution:="optional",org.codehaus.jackson.*;version="[1.9.1,2)";resolution:="optional",javax.transaction.*;version="[1.0.1, 2.0.0)",*;</Import-Package>
-            <Export-Package>org.neo4j.*;version="${neo4j.version}";split-package:=merge-first,javax.*,org.apache.*</Export-Package>
-            <Private-Package>ch.qos.logback.*</Private-Package>
+            <Export-Package>org.neo4j.*;version="${neo4j.version}";-split-package:=merge-first,javax.*,org.apache.*</Export-Package>
+            <Private-Package>ch.qos.logback.*, org.eknet.neo4j.osgibundle</Private-Package>
             <Embed-Dependency>*;scope=compile|runtime;type=!pom;inline=true</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
-            <_failok>true</_failok>
+            <Bundle-Activator>org.eknet.neo4j.osgibundle.Neo4jActivator</Bundle-Activator>
           </instructions>
         </configuration>
       </plugin>
