@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <!--<parent>-->
-    <!--<groupId>org.neo4j.build</groupId>-->
-    <!--<artifactId>parent-central</artifactId>-->
-    <!--<version>31</version>-->
-  <!--</parent>-->
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.neo4j</groupId>
+  <groupId>org.eknet.neo4j</groupId>
   <artifactId>neo4j-osgi-bundle</artifactId>
   <version>1.8_01</version>
-  <name>Neo4j OSGi SuperBundle</name>
+  <name>Neo4j OSGi Superbundle</name>
   <packaging>bundle</packaging>
   
   <properties>
     <short-name>osgi-build</short-name>
     <license-text.header>GPL-3-header.txt</license-text.header>
     <neo4j.version>1.8</neo4j.version>
-    <neo4j-osgi-bundle.version>1.8_01</neo4j-osgi-bundle.version>
   </properties>
 
   <scm>
@@ -102,4 +96,13 @@ the relevant Commercial Agreement.
       </comments>
     </license>
   </licenses>
+
+  <distributionManagement>
+    <repository>
+      <id>eknet-maven2</id>
+      <name>eknet-maven2</name>
+      <url>https://eknet.org/maven2</url>
+    </repository>
+  </distributionManagement>
+
 </project>
